@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 
 <meta name="viewport"
@@ -9,7 +11,7 @@
       maximum-scale=1.0,
       user-scalable=no">
 
-<title>Risol Snake with arum 🥟</title>
+<title>Risol Snake with Arum 🥟</title>
 
 <style>
 
@@ -23,7 +25,6 @@ body {
     margin: 0;
     width: 100%;
     height: 100%;
-    overflow: hidden;
 }
 
 body {
@@ -43,7 +44,7 @@ body {
 
 .screen {
     width: 100%;
-    height: 100dvh;
+    min-height: 100dvh;
 
     display: flex;
     justify-content: center;
@@ -58,7 +59,8 @@ body {
 ========================= */
 
 .home-card {
-    width: min(90vw, 400px);
+
+    width: min(92vw, 420px);
 
     background: #fffaf1;
 
@@ -73,8 +75,9 @@ body {
 }
 
 .arum-photo {
-    width: min(65vw, 240px);
-    height: min(65vw, 240px);
+
+    width: min(65vw, 230px);
+    height: min(65vw, 230px);
 
     object-fit: cover;
 
@@ -84,9 +87,10 @@ body {
 }
 
 .title {
+
     margin-top: 18px;
 
-    font-size: clamp(30px, 8vw, 44px);
+    font-size: clamp(28px, 7vw, 42px);
 
     font-weight: 900;
 
@@ -94,12 +98,15 @@ body {
 }
 
 .subtitle {
-    margin: 6px 0 24px;
+
+    margin: 6px 0 20px;
 
     color: #737b73;
 }
 
+
 button {
+
     border: 3px solid #293629;
 
     border-radius: 13px;
@@ -115,9 +122,12 @@ button {
     padding: 12px 30px;
 
     box-shadow: 4px 4px 0 #293629;
+
+    cursor: pointer;
 }
 
 button:active {
+
     transform: translate(3px, 3px);
 
     box-shadow: 1px 1px 0 #293629;
@@ -125,10 +135,88 @@ button:active {
 
 
 /* =========================
-   GAME SCREEN
+   LEADERBOARD
+========================= */
+
+.leaderboard {
+
+    margin-top: 25px;
+
+    padding: 15px;
+
+    background: #f7f0df;
+
+    border: 2px solid #293629;
+
+    border-radius: 16px;
+
+    text-align: left;
+}
+
+.leaderboard-title {
+
+    text-align: center;
+
+    font-size: 18px;
+
+    font-weight: 900;
+
+    margin-bottom: 10px;
+}
+
+.leaderboard-row {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 6px 4px;
+
+    border-bottom: 1px solid
+        rgba(41,54,41,0.12);
+
+    font-size: 14px;
+}
+
+.leaderboard-row:last-child {
+
+    border-bottom: none;
+}
+
+.rank {
+
+    width: 30px;
+
+    font-weight: 900;
+}
+
+.player-name {
+
+    flex: 1;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+}
+
+.player-score {
+
+    font-weight: 900;
+
+    margin-left: 10px;
+}
+
+
+/* =========================
+   GAME
 ========================= */
 
 .game-screen {
+
     flex-direction: column;
 
     justify-content: flex-start;
@@ -139,6 +227,7 @@ button:active {
 }
 
 .top-bar {
+
     width: min(92vw, 500px);
 
     display: flex;
@@ -151,10 +240,12 @@ button:active {
 }
 
 .score {
+
     font-size: 25px;
 }
 
 .home-button {
+
     padding: 7px 13px;
 
     font-size: 20px;
@@ -166,6 +257,7 @@ button:active {
 ========================= */
 
 .game-board {
+
     width: min(92vw, 500px);
 
     aspect-ratio: 1 / 1;
@@ -184,6 +276,7 @@ button:active {
 }
 
 canvas {
+
     display: block;
 
     width: 100%;
@@ -191,6 +284,7 @@ canvas {
 }
 
 .hint {
+
     margin: 3px 0;
 
     color: #626b62;
@@ -204,7 +298,12 @@ canvas {
 ========================= */
 
 .game-over-card {
-    width: min(90vw, 370px);
+
+    width: min(92vw, 420px);
+
+    max-height: 90dvh;
+
+    overflow-y: auto;
 
     background: #fffaf1;
 
@@ -212,7 +311,7 @@ canvas {
 
     border-radius: 25px;
 
-    padding: 30px;
+    padding: 25px;
 
     text-align: center;
 
@@ -220,37 +319,72 @@ canvas {
 }
 
 .game-over-card h2 {
+
     font-size: 32px;
 
     margin: 10px 0;
 }
 
 .game-over-card p {
+
     color: #687168;
 
-    margin-bottom: 22px;
+    margin-bottom: 18px;
 }
 
 .game-over-card button {
+
     width: 100%;
 
     margin-top: 10px;
 }
 
 .secondary {
+
     background: #eee2cf;
 }
 
+
+/* =========================
+   NAME
+========================= */
+
+.name-text {
+
+    font-size: 14px;
+
+    color: #737b73;
+
+    margin-top: 5px;
+}
+
+
+/* =========================
+   LOADING
+========================= */
+
+.loading {
+
+    text-align: center;
+
+    color: #737b73;
+
+    font-size: 13px;
+
+    padding: 8px;
+}
+
 </style>
+
 </head>
 
 
 <body>
 
 
-<!-- =========================
+<!-- ==================================================
      HOME
-========================= -->
+================================================== -->
 
 <section
     id="homeScreen"
@@ -277,15 +411,34 @@ canvas {
             PLAY
         </button>
 
+
+        <!-- LEADERBOARD -->
+
+        <div class="leaderboard">
+
+            <div class="leaderboard-title">
+                🏆 GLOBAL HIGH SCORE
+            </div>
+
+            <div id="homeLeaderboard">
+
+                <div class="loading">
+                    Loading leaderboard...
+                </div>
+
+            </div>
+
+        </div>
+
     </div>
 
 </section>
 
 
 
-<!-- =========================
+<!-- ==================================================
      GAME
-========================= -->
+================================================== -->
 
 <section
     id="gameScreen"
@@ -295,12 +448,18 @@ canvas {
     <div class="top-bar">
 
         <div>
+
             RISOL
+
             <span
                 id="score"
                 class="score"
-            >0</span>
+            >
+                0
+            </span>
+
         </div>
+
 
         <button
             id="homeButton"
@@ -327,9 +486,9 @@ canvas {
 
 
 
-<!-- =========================
+<!-- ==================================================
      GAME OVER
-========================= -->
+================================================== -->
 
 <section
     id="gameOverScreen"
@@ -342,19 +501,53 @@ canvas {
             🥟
         </div>
 
+
         <h2>
             MAAF SELESAI!
         </h2>
 
+
         <p>
-            You ate
-            <strong id="finalScore">0</strong>
-            risols!
+
+            Kamu makan
+
+            <strong id="finalScore">
+                0
+            </strong>
+
+            risol!
+
         </p>
+
+
+        <div class="name-text">
+            Score kamu sudah masuk leaderboard 🏆
+        </div>
+
+
+        <!-- LEADERBOARD -->
+
+        <div class="leaderboard">
+
+            <div class="leaderboard-title">
+                🏆 GLOBAL HIGH SCORE
+            </div>
+
+            <div id="gameOverLeaderboard">
+
+                <div class="loading">
+                    Loading...
+                </div>
+
+            </div>
+
+        </div>
+
 
         <button id="againButton">
             COBAIN LAGI
         </button>
+
 
         <button
             id="backButton"
@@ -369,79 +562,188 @@ canvas {
 
 
 
-<script>
+<!-- ==================================================
+     FIREBASE + GAME
+================================================== -->
 
-/* =========================
+<script type="module">
+
+
+/* ==================================================
+   FIREBASE IMPORT
+================================================== */
+
+import {
+    initializeApp
+}
+from
+"https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+
+
+import {
+    getDatabase,
+    ref,
+    push,
+    serverTimestamp,
+    query,
+    orderByChild,
+    limitToLast,
+    onValue
+}
+from
+"https://www.gstatic.com/firebasejs/12.18.0/firebase-database.js";
+
+
+/* ==================================================
+   FIREBASE CONFIG
+================================================== */
+
+const firebaseConfig = {
+
+    apiKey:
+        "AIzaSyAaed-Zfr6vNuSaMgUDrW0hQMogIIzqUpQ",
+
+    authDomain:
+        "risol-snake.firebaseapp.com",
+
+    databaseURL:
+        "https://risol-snake-default-rtdb.asia-southeast1.firebasedatabase.app",
+
+    projectId:
+        "risol-snake",
+
+    storageBucket:
+        "risol-snake.firebasestorage.app",
+
+    messagingSenderId:
+        "673579342765",
+
+    appId:
+        "1:673579342765:web:d3bdc52863034c4e371f24",
+
+    measurementId:
+        "G-FDPKTBJH7N"
+
+};
+
+
+/* ==================================================
+   INITIALIZE FIREBASE
+================================================== */
+
+const app =
+    initializeApp(firebaseConfig);
+
+
+const database =
+    getDatabase(app);
+
+
+/* ==================================================
    ELEMENTS
-========================= */
+================================================== */
 
 const homeScreen =
-    document.getElementById("homeScreen");
+    document.getElementById(
+        "homeScreen"
+    );
 
 const gameScreen =
-    document.getElementById("gameScreen");
+    document.getElementById(
+        "gameScreen"
+    );
 
 const gameOverScreen =
-    document.getElementById("gameOverScreen");
+    document.getElementById(
+        "gameOverScreen"
+    );
 
 const canvas =
-    document.getElementById("gameCanvas");
+    document.getElementById(
+        "gameCanvas"
+    );
 
 const ctx =
     canvas.getContext("2d");
 
+
 const scoreText =
-    document.getElementById("score");
+    document.getElementById(
+        "score"
+    );
 
 const finalScore =
-    document.getElementById("finalScore");
+    document.getElementById(
+        "finalScore"
+    );
 
 
-/* =========================
+const homeLeaderboard =
+    document.getElementById(
+        "homeLeaderboard"
+    );
+
+const gameOverLeaderboard =
+    document.getElementById(
+        "gameOverLeaderboard"
+    );
+
+
+/* ==================================================
    SETTINGS
-========================= */
+================================================== */
 
 const GRID = 28;
 
-/*
-   Ular memenuhi satu kotak.
-   Jadi tetap kelihatan walaupun
-   grid-nya kecil seperti Snake jadul.
-*/
-const SNAKE_SIZE = 1.00;
 
 /*
-   Risol juga memenuhi satu kotak.
+   Badan ular memenuhi
+   kotak grid.
 */
+
+const SNAKE_SIZE = 1.00;
+
+
+/*
+   Risol juga besar.
+*/
+
 const RISOL_SIZE = 1.00;
 
 
-/* =========================
+/* ==================================================
    RISOL FILES
-========================= */
+================================================== */
 
 const risolFiles = [
+
     "Risol1.png",
+
     "Risol2.png",
+
     "Risol3.png"
+
 ];
 
-const risolImages = risolFiles.map(
-    file => {
 
-        const img = new Image();
+const risolImages =
+    risolFiles.map(
+        file => {
 
-        img.src = file;
+            const img =
+                new Image();
 
-        return img;
+            img.src = file;
 
-    }
-);
+            return img;
+
+        }
+    );
 
 
-/* =========================
+/* ==================================================
    GAME VARIABLES
-========================= */
+================================================== */
 
 let cellSize = 1;
 
@@ -457,21 +759,57 @@ let running = false;
 
 let speed = 150;
 
+let playerName = "";
+
 
 let direction = {
+
     x: 1,
     y: 0
+
 };
+
 
 let nextDirection = {
+
     x: 1,
     y: 0
+
 };
 
 
-/* =========================
+/* ==================================================
+   PLAYER NAME
+================================================== */
+
+function askPlayerName() {
+
+    let name =
+        prompt(
+            "Masukkan nama kamu untuk leaderboard 🏆"
+        );
+
+
+    if (!name || !name.trim()) {
+
+        name = "Anonymous";
+
+    }
+
+
+    name =
+        name.trim()
+            .substring(0, 20);
+
+
+    playerName = name;
+
+}
+
+
+/* ==================================================
    CANVAS
-========================= */
+================================================== */
 
 function resizeCanvas() {
 
@@ -481,14 +819,22 @@ function resizeCanvas() {
             500
         );
 
-    canvas.width = size;
-    canvas.height = size;
+
+    canvas.width =
+        size;
+
+    canvas.height =
+        size;
+
 
     cellSize =
         size / GRID;
 
+
     draw();
+
 }
+
 
 window.addEventListener(
     "resize",
@@ -496,58 +842,61 @@ window.addEventListener(
 );
 
 
-/* =========================
+/* ==================================================
    START GAME
-========================= */
+================================================== */
 
 function startGame() {
 
-    alert("GAME START!");
-
-    homeScreen.classList.add("hidden");
-
-    gameOverScreen.classList.add("hidden");
-
-    gameScreen.classList.remove("hidden");
-
-    homeScreen.classList.add("hidden");
-
-    gameOverScreen.classList.add("hidden");
-
-    gameScreen.classList.remove("hidden");
+    askPlayerName();
 
 
-    /*
-       Ular mulai dengan
-       3 bagian.
+    homeScreen.classList.add(
+        "hidden"
+    );
 
-       Posisi di tengah.
-    */
+    gameOverScreen.classList.add(
+        "hidden"
+    );
+
+    gameScreen.classList.remove(
+        "hidden"
+    );
+
 
     snake = [
+
         {
             x: 14,
             y: 14
         },
+
         {
             x: 13,
             y: 14
         },
+
         {
             x: 12,
             y: 14
         }
+
     ];
 
 
     direction = {
+
         x: 1,
         y: 0
+
     };
 
+
     nextDirection = {
+
         x: 1,
         y: 0
+
     };
 
 
@@ -558,29 +907,34 @@ function startGame() {
     running = true;
 
 
-    scoreText.textContent = "0";
+    scoreText.textContent =
+        "0";
 
 
     resizeCanvas();
+
 
     createFood();
 
 
     clearInterval(timer);
 
-    timer = setInterval(
-        updateGame,
-        speed
-    );
+
+    timer =
+        setInterval(
+            updateGame,
+            speed
+        );
 
 
     draw();
+
 }
 
 
-/* =========================
-   CREATE RISOL
-========================= */
+/* ==================================================
+   CREATE FOOD
+================================================== */
 
 function createFood() {
 
@@ -593,17 +947,21 @@ function createFood() {
 
             x:
                 Math.floor(
-                    Math.random() * GRID
+                    Math.random() *
+                    GRID
                 ),
 
             y:
                 Math.floor(
-                    Math.random() * GRID
+                    Math.random() *
+                    GRID
                 )
 
         };
 
-    } while (
+    }
+
+    while (
 
         snake.some(
             part =>
@@ -613,11 +971,6 @@ function createFood() {
 
     );
 
-
-    /*
-       Pilih random dari
-       Risol1, Risol2, Risol3.
-    */
 
     const randomImage =
         risolImages[
@@ -641,9 +994,9 @@ function createFood() {
 }
 
 
-/* =========================
-   UPDATE
-========================= */
+/* ==================================================
+   UPDATE GAME
+================================================== */
 
 function updateGame() {
 
@@ -667,9 +1020,7 @@ function updateGame() {
     };
 
 
-    /* =====================
-       WALL
-    ===================== */
+    /* WALL */
 
     if (
 
@@ -683,12 +1034,11 @@ function updateGame() {
         endGame();
 
         return;
+
     }
 
 
-    /* =====================
-       BODY
-    ===================== */
+    /* BODY */
 
     if (
 
@@ -703,19 +1053,14 @@ function updateGame() {
         endGame();
 
         return;
+
     }
 
-
-    /*
-       Tambah kepala.
-    */
 
     snake.unshift(head);
 
 
-    /* =====================
-       EAT RISOL
-    ===================== */
+    /* EAT */
 
     const ateFood =
 
@@ -727,24 +1072,13 @@ function updateGame() {
 
         score++;
 
+
         scoreText.textContent =
             score;
 
 
-        /*
-           Jangan pop ekor.
-
-           Inilah yang membuat
-           ular bertambah panjang.
-        */
-
         createFood();
 
-
-        /*
-           Semakin panjang,
-           semakin cepat.
-        */
 
         speed =
             Math.max(
@@ -754,6 +1088,7 @@ function updateGame() {
 
 
         clearInterval(timer);
+
 
         timer =
             setInterval(
@@ -765,35 +1100,30 @@ function updateGame() {
 
     else {
 
-        /*
-           Tidak makan:
-           buang ekor.
-        */
-
         snake.pop();
 
     }
 
 
     draw();
+
 }
 
 
-/* =========================
+/* ==================================================
    DRAW
-========================= */
+================================================== */
 
 function draw() {
 
     if (!canvas.width) return;
 
 
-    /* =====================
-       BACKGROUND
-    ===================== */
+    /* BACKGROUND */
 
     ctx.fillStyle =
         "#ffffff";
+
 
     ctx.fillRect(
         0,
@@ -803,14 +1133,14 @@ function draw() {
     );
 
 
-    /* =====================
-       GRID
-    ===================== */
+    /* GRID */
 
-        ctx.strokeStyle =
-    "rgba(40,50,40,0.06)";
+    ctx.strokeStyle =
+        "rgba(40,50,40,0.06)";
 
-    ctx.lineWidth = 1;
+
+    ctx.lineWidth =
+        1;
 
 
     for (
@@ -851,58 +1181,71 @@ function draw() {
     }
 
 
-    /* =====================
+    /* ==================================================
        RISOL
-    ===================== */
+    ================================================== */
 
     if (food) {
 
         const size =
-            cellSize * RISOL_SIZE;
+            cellSize *
+            RISOL_SIZE;
+
 
         const x =
-            food.x * cellSize;
+            food.x *
+            cellSize;
+
 
         const y =
-            food.y * cellSize;
+            food.y *
+            cellSize;
 
 
         if (
+
             food.image &&
             food.image.complete &&
             food.image.naturalWidth > 0
+
         ) {
 
             ctx.drawImage(
+
                 food.image,
+
                 x,
                 y,
+
                 size,
                 size
+
             );
 
         }
 
         else {
 
-            /*
-               Fallback kalau PNG
-               belum selesai loading.
-            */
-
             ctx.font =
                 `${cellSize * 0.9}px Arial`;
+
 
             ctx.textAlign =
                 "center";
 
+
             ctx.textBaseline =
                 "middle";
 
+
             ctx.fillText(
+
                 "🥟",
+
                 x + size / 2,
+
                 y + size / 2
+
             );
 
         }
@@ -910,9 +1253,9 @@ function draw() {
     }
 
 
-    /* =====================
+    /* ==================================================
        SNAKE
-    ===================== */
+    ================================================== */
 
     for (
         let i = 0;
@@ -923,19 +1266,21 @@ function draw() {
         const part =
             snake[i];
 
+
         const size =
-            cellSize * SNAKE_SIZE;
+            cellSize *
+            SNAKE_SIZE;
+
 
         const x =
-            part.x * cellSize;
+            part.x *
+            cellSize;
+
 
         const y =
-            part.y * cellSize;
+            part.y *
+            cellSize;
 
-
-        /*
-           Kepala lebih gelap.
-        */
 
         if (i === 0) {
 
@@ -952,40 +1297,33 @@ function draw() {
         }
 
 
-        /*
-           Badan ular.
-        */
-
         ctx.fillRect(
+
             x,
             y,
             size,
             size
+
         );
 
-
-        /*
-           Garis tipis supaya
-           setiap bagian tetap
-           terlihat jelas.
-        */
 
         ctx.strokeStyle =
-            "#b8c68e";
+            "#ffffff";
 
-        ctx.lineWidth = 1;
+
+        ctx.lineWidth =
+            1;
+
 
         ctx.strokeRect(
+
             x,
             y,
             size,
             size
+
         );
 
-
-        /*
-           Mata kepala.
-        */
 
         if (i === 0) {
 
@@ -1002,9 +1340,9 @@ function draw() {
 }
 
 
-/* =========================
+/* ==================================================
    EYES
-========================= */
+================================================== */
 
 function drawEyes(
     x,
@@ -1024,47 +1362,64 @@ function drawEyes(
 
 
     let eye1;
+
     let eye2;
 
 
     if (direction.x === 1) {
 
         eye1 = [
+
             x + size * 0.72,
             y + size * 0.28
+
         ];
 
         eye2 = [
+
             x + size * 0.72,
             y + size * 0.72
+
         ];
 
     }
 
-    else if (direction.x === -1) {
+    else if (
+        direction.x === -1
+    ) {
 
         eye1 = [
+
             x + size * 0.28,
             y + size * 0.28
+
         ];
 
         eye2 = [
+
             x + size * 0.28,
             y + size * 0.72
+
         ];
 
     }
 
-    else if (direction.y === -1) {
+    else if (
+        direction.y === -1
+    ) {
 
         eye1 = [
+
             x + size * 0.28,
             y + size * 0.28
+
         ];
 
         eye2 = [
+
             x + size * 0.72,
             y + size * 0.28
+
         ];
 
     }
@@ -1072,13 +1427,17 @@ function drawEyes(
     else {
 
         eye1 = [
+
             x + size * 0.28,
             y + size * 0.72
+
         ];
 
         eye2 = [
+
             x + size * 0.72,
             y + size * 0.72
+
         ];
 
     }
@@ -1087,11 +1446,13 @@ function drawEyes(
     ctx.beginPath();
 
     ctx.arc(
+
         eye1[0],
         eye1[1],
         eyeSize,
         0,
         Math.PI * 2
+
     );
 
     ctx.fill();
@@ -1100,11 +1461,13 @@ function drawEyes(
     ctx.beginPath();
 
     ctx.arc(
+
         eye2[0],
         eye2[1],
         eyeSize,
         0,
         Math.PI * 2
+
     );
 
     ctx.fill();
@@ -1112,13 +1475,304 @@ function drawEyes(
 }
 
 
-/* =========================
-   GAME OVER
-========================= */
+/* ==================================================
+   SAVE SCORE TO FIREBASE
+================================================== */
 
-function endGame() {
+async function saveScore() {
+
+    if (score <= 0) return;
+
+
+    try {
+
+        const leaderboardRef =
+            ref(
+                database,
+                "leaderboard"
+            );
+
+
+        await push(
+
+            leaderboardRef,
+
+            {
+
+                name:
+                    playerName ||
+                    "Anonymous",
+
+                score:
+                    score,
+
+                createdAt:
+                    serverTimestamp()
+
+            }
+
+        );
+
+        console.log(
+            "Score saved:",
+            score
+        );
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Failed to save score:",
+            error
+        );
+
+    }
+
+}
+
+
+/* ==================================================
+   LOAD GLOBAL LEADERBOARD
+================================================== */
+
+function loadLeaderboard() {
+
+    const leaderboardRef =
+        ref(
+            database,
+            "leaderboard"
+        );
+
+
+    const topScoresQuery =
+        query(
+
+            leaderboardRef,
+
+            orderByChild("score"),
+
+            limitToLast(10)
+
+        );
+
+
+    onValue(
+
+        topScoresQuery,
+
+        snapshot => {
+
+            const scores = [];
+
+
+            snapshot.forEach(
+                child => {
+
+                    const data =
+                        child.val();
+
+
+                    scores.push({
+
+                        name:
+                            data.name ||
+                            "Anonymous",
+
+                        score:
+                            Number(
+                                data.score
+                            )
+
+                    });
+
+                }
+            );
+
+
+            /*
+               Firebase mengembalikan
+               dari score kecil ke besar.
+
+               Kita balik supaya
+               tertinggi berada di atas.
+            */
+
+            scores.reverse();
+
+
+            renderLeaderboard(
+                homeLeaderboard,
+                scores
+            );
+
+
+            renderLeaderboard(
+                gameOverLeaderboard,
+                scores
+            );
+
+        },
+
+        error => {
+
+            console.error(
+                "Leaderboard error:",
+                error
+            );
+
+
+            homeLeaderboard.innerHTML =
+                `<div class="loading">
+                    Leaderboard unavailable
+                </div>`;
+
+        }
+
+    );
+
+}
+
+
+/* ==================================================
+   RENDER LEADERBOARD
+================================================== */
+
+function renderLeaderboard(
+    container,
+    scores
+) {
+
+    if (!scores.length) {
+
+        container.innerHTML =
+
+            `<div class="loading">
+                Belum ada skor. Jadilah yang pertama! 🥟
+            </div>`;
+
+        return;
+
+    }
+
+
+    container.innerHTML = "";
+
+
+    scores.forEach(
+        (item, index) => {
+
+            const row =
+                document.createElement(
+                    "div"
+                );
+
+
+            row.className =
+                "leaderboard-row";
+
+
+            const rank =
+                document.createElement(
+                    "div"
+                );
+
+
+            rank.className =
+                "rank";
+
+
+            if (index === 0) {
+
+                rank.textContent =
+                    "🥇";
+
+            }
+
+            else if (index === 1) {
+
+                rank.textContent =
+                    "🥈";
+
+            }
+
+            else if (index === 2) {
+
+                rank.textContent =
+                    "🥉";
+
+            }
+
+            else {
+
+                rank.textContent =
+                    `${index + 1}.`;
+
+            }
+
+
+            const name =
+                document.createElement(
+                    "div"
+                );
+
+
+            name.className =
+                "player-name";
+
+
+            name.textContent =
+                item.name;
+
+
+            const score =
+                document.createElement(
+                    "div"
+                );
+
+
+            score.className =
+                "player-score";
+
+
+            score.textContent =
+                item.score;
+
+
+            row.appendChild(
+                rank
+            );
+
+            row.appendChild(
+                name
+            );
+
+            row.appendChild(
+                score
+            );
+
+
+            container.appendChild(
+                row
+            );
+
+        }
+    );
+
+}
+
+
+/* ==================================================
+   GAME OVER
+================================================== */
+
+async function endGame() {
+
+    if (!running) return;
+
 
     running = false;
+
 
     clearInterval(timer);
 
@@ -1127,9 +1781,17 @@ function endGame() {
         score;
 
 
+    /*
+       Simpan skor ke Firebase.
+    */
+
+    await saveScore();
+
+
     gameScreen.classList.add(
         "hidden"
     );
+
 
     gameOverScreen.classList.remove(
         "hidden"
@@ -1138,104 +1800,142 @@ function endGame() {
 }
 
 
-/* =========================
+/* ==================================================
    KEYBOARD
-========================= */
+================================================== */
 
 document.addEventListener(
+
     "keydown",
+
     function(event) {
 
+
         if (
+
             event.key === "ArrowUp" &&
+
             direction.y !== 1
+
         ) {
 
             nextDirection = {
+
                 x: 0,
                 y: -1
+
             };
 
         }
 
+
         else if (
+
             event.key === "ArrowDown" &&
+
             direction.y !== -1
+
         ) {
 
             nextDirection = {
+
                 x: 0,
                 y: 1
+
             };
 
         }
 
+
         else if (
+
             event.key === "ArrowLeft" &&
+
             direction.x !== 1
+
         ) {
 
             nextDirection = {
+
                 x: -1,
                 y: 0
+
             };
 
         }
 
+
         else if (
+
             event.key === "ArrowRight" &&
+
             direction.x !== -1
+
         ) {
 
             nextDirection = {
+
                 x: 1,
                 y: 0
+
             };
 
         }
 
     }
+
 );
 
 
-/* =========================
+/* ==================================================
    MOBILE SWIPE
-========================= */
+================================================== */
 
 let touchStartX = 0;
+
 let touchStartY = 0;
 
 
 canvas.addEventListener(
+
     "touchstart",
+
     function(event) {
 
         const touch =
             event.changedTouches[0];
 
+
         touchStartX =
             touch.clientX;
+
 
         touchStartY =
             touch.clientY;
 
     },
+
     {
         passive: true
     }
+
 );
 
 
 canvas.addEventListener(
+
     "touchend",
+
     function(event) {
 
         const touch =
             event.changedTouches[0];
 
+
         const dx =
             touch.clientX -
             touchStartX;
+
 
         const dy =
             touch.clientY -
@@ -1243,68 +1943,102 @@ canvas.addEventListener(
 
 
         if (
+
             Math.max(
+
                 Math.abs(dx),
+
                 Math.abs(dy)
+
             ) < 20
+
         ) {
+
             return;
+
         }
 
 
         if (
+
             Math.abs(dx) >
             Math.abs(dy)
+
         ) {
 
+
             if (
+
                 dx > 0 &&
+
                 direction.x !== -1
+
             ) {
 
                 nextDirection = {
+
                     x: 1,
                     y: 0
+
                 };
 
             }
 
+
             else if (
+
                 dx < 0 &&
+
                 direction.x !== 1
+
             ) {
 
                 nextDirection = {
+
                     x: -1,
                     y: 0
+
                 };
 
             }
 
         }
 
+
         else {
 
+
             if (
+
                 dy > 0 &&
+
                 direction.y !== -1
+
             ) {
 
                 nextDirection = {
+
                     x: 0,
                     y: 1
+
                 };
 
             }
 
+
             else if (
+
                 dy < 0 &&
+
                 direction.y !== 1
+
             ) {
 
                 nextDirection = {
+
                     x: 0,
                     y: -1
+
                 };
 
             }
@@ -1312,18 +2046,22 @@ canvas.addEventListener(
         }
 
     },
+
     {
         passive: true
     }
+
 );
 
 
-/* =========================
+/* ==================================================
    BUTTONS
-========================= */
+================================================== */
 
 document
-    .getElementById("playButton")
+    .getElementById(
+        "playButton"
+    )
     .addEventListener(
         "click",
         startGame
@@ -1331,7 +2069,9 @@ document
 
 
 document
-    .getElementById("againButton")
+    .getElementById(
+        "againButton"
+    )
     .addEventListener(
         "click",
         startGame
@@ -1339,52 +2079,69 @@ document
 
 
 document
-    .getElementById("homeButton")
+    .getElementById(
+        "homeButton"
+    )
     .addEventListener(
+
         "click",
+
         function() {
 
             running = false;
 
             clearInterval(timer);
 
+
             gameScreen.classList.add(
                 "hidden"
             );
+
 
             homeScreen.classList.remove(
                 "hidden"
             );
 
         }
+
     );
 
 
 document
-    .getElementById("backButton")
+    .getElementById(
+        "backButton"
+    )
     .addEventListener(
+
         "click",
+
         function() {
 
             gameOverScreen.classList.add(
                 "hidden"
             );
 
+
             homeScreen.classList.remove(
                 "hidden"
             );
 
         }
+
     );
 
 
-/* =========================
+/* ==================================================
    INITIALIZE
-========================= */
+================================================== */
 
 resizeCanvas();
+
+loadLeaderboard();
+
 
 </script>
 
 </body>
+
 </html>
