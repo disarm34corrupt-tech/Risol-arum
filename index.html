@@ -1,381 +1,342 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<meta name="viewport"
+content="width=device-width,
+initial-scale=1.0,
+maximum-scale=1.0,
+user-scalable=no">
 
 <title>Risol Snake 🥟</title>
 
 <style>
 
-* {
-    box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
+*{
+box-sizing:border-box;
+-webkit-tap-highlight-color:transparent;
 }
 
-html,
-body {
-    margin: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+html,body{
+margin:0;
+width:100%;
+height:100%;
+overflow:hidden;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background: #f3e7d2;
-    color: #293629;
+body{
+font-family:Arial,sans-serif;
+background:#f3e7d2;
+color:#293629;
 }
 
-
-/* =========================
-   SCREEN
-========================= */
-
-.screen {
-    width: 100%;
-    height: 100dvh;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    padding: 20px;
+.screen{
+width:100%;
+height:100dvh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:20px;
 }
 
-.hidden {
-    display: none !important;
+.hidden{
+display:none!important;
 }
 
 
-/* =========================
-   HOME
-========================= */
+/* HOME */
 
-.home-card {
-    width: min(90vw, 400px);
-
-    background: #fffaf1;
-
-    border: 3px solid #293629;
-    border-radius: 25px;
-
-    padding: 28px;
-
-    text-align: center;
-
-    box-shadow: 7px 7px 0 #293629;
+.home-card{
+width:min(90vw,400px);
+background:#fffaf1;
+border:3px solid #293629;
+border-radius:25px;
+padding:28px;
+text-align:center;
+box-shadow:7px 7px 0 #293629;
 }
 
-.arum-photo {
-    width: min(70vw, 250px);
-    height: min(70vw, 250px);
-
-    object-fit: cover;
-
-    border-radius: 18px;
-
-    border: 3px solid #293629;
+.arum-photo{
+width:min(70vw,250px);
+height:min(70vw,250px);
+object-fit:cover;
+border-radius:18px;
+border:3px solid #293629;
 }
 
-.title {
-    font-size: clamp(30px, 8vw, 45px);
-
-    font-weight: 900;
-
-    letter-spacing: 2px;
-
-    margin-top: 18px;
+.title{
+font-size:clamp(30px,8vw,45px);
+font-weight:900;
+letter-spacing:2px;
+margin-top:18px;
 }
 
-.subtitle {
-    margin: 5px 0 24px;
-
-    color: #737b73;
+.subtitle{
+margin:5px 0 24px;
+color:#737b73;
 }
 
-
-button {
-    border: 3px solid #293629;
-
-    border-radius: 13px;
-
-    background: #efbf68;
-
-    color: #293629;
-
-    font-size: 17px;
-
-    font-weight: 900;
-
-    padding: 12px 30px;
-
-    box-shadow: 4px 4px 0 #293629;
-
-    cursor: pointer;
+button{
+border:3px solid #293629;
+border-radius:13px;
+background:#efbf68;
+color:#293629;
+font-size:17px;
+font-weight:900;
+padding:12px 30px;
+box-shadow:4px 4px 0 #293629;
+cursor:pointer;
 }
 
-button:active {
-    transform: translate(3px, 3px);
-
-    box-shadow: 1px 1px 0 #293629;
+button:active{
+transform:translate(3px,3px);
+box-shadow:1px 1px 0 #293629;
 }
 
 
-/* =========================
-   GAME
-========================= */
+/* GAME */
 
-.game-screen {
-    flex-direction: column;
-
-    justify-content: flex-start;
-
-    padding-top: 15px;
-
-    gap: 10px;
+.game-screen{
+flex-direction:column;
+justify-content:flex-start;
+padding-top:15px;
+gap:10px;
 }
 
-.top-bar {
-    width: min(92vw, 500px);
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-    font-weight: 900;
+.top-bar{
+width:min(92vw,500px);
+display:flex;
+justify-content:space-between;
+align-items:center;
+font-weight:900;
 }
 
-.score {
-    font-size: 25px;
+.score{
+font-size:25px;
 }
 
-.home-button {
-    padding: 7px 13px;
-
-    font-size: 20px;
+.home-button{
+padding:7px 13px;
+font-size:20px;
 }
 
-
-.game-board {
-    width: min(92vw, 500px);
-
-    aspect-ratio: 1 / 1;
-
-    border: 4px solid #293629;
-
-    border-radius: 12px;
-
-    overflow: hidden;
-
-    background: #b8c68e;
-
-    box-shadow: 6px 6px 0 #293629;
-
-    touch-action: none;
+.game-board{
+width:min(92vw,500px);
+aspect-ratio:1/1;
+border:4px solid #293629;
+border-radius:12px;
+overflow:hidden;
+background:#b8c68e;
+box-shadow:6px 6px 0 #293629;
+touch-action:none;
 }
 
-canvas {
-    display: block;
-
-    width: 100%;
-    height: 100%;
-
-    image-rendering: pixelated;
+canvas{
+display:block;
+width:100%;
+height:100%;
+image-rendering:pixelated;
 }
 
-.hint {
-    margin: 4px 0;
-
-    color: #626b62;
-
-    font-size: 13px;
+.hint{
+margin:4px 0;
+color:#626b62;
+font-size:13px;
 }
 
 
-/* =========================
-   GAME OVER
-========================= */
+/* GAME OVER */
 
-.game-over-card {
-    width: min(90vw, 370px);
-
-    background: #fffaf1;
-
-    border: 3px solid #293629;
-
-    border-radius: 25px;
-
-    padding: 30px;
-
-    text-align: center;
-
-    box-shadow: 7px 7px 0 #293629;
+.game-over-card{
+width:min(90vw,370px);
+background:#fffaf1;
+border:3px solid #293629;
+border-radius:25px;
+padding:30px;
+text-align:center;
+box-shadow:7px 7px 0 #293629;
 }
 
-.game-over-card h2 {
-    font-size: 32px;
-
-    margin: 10px 0;
+.game-over-card h2{
+font-size:32px;
+margin:10px 0;
 }
 
-.game-over-card p {
-    color: #687168;
-
-    margin-bottom: 22px;
+.game-over-card p{
+color:#687168;
+margin-bottom:22px;
 }
 
-.game-over-card button {
-    width: 100%;
-
-    margin-top: 10px;
+.game-over-card button{
+width:100%;
+margin-top:10px;
 }
 
-.secondary {
-    background: #eee2cf;
+.secondary{
+background:#eee2cf;
 }
 
-.risol-emoji {
-    font-size: 48px;
+.risol-emoji{
+font-size:48px;
 }
 
 
-/* =========================
-   SMALL SCREEN
-========================= */
+/* SMALL SCREEN */
 
-@media (max-height: 650px) {
+@media(max-height:650px){
 
-    .home-card {
-        padding: 18px;
-    }
+.home-card{
+padding:18px;
+}
 
-    .arum-photo {
-        width: 175px;
-        height: 175px;
-    }
+.arum-photo{
+width:175px;
+height:175px;
+}
 
-    .title {
-        font-size: 30px;
-    }
+.title{
+font-size:30px;
+}
+
 }
 
 </style>
+
 </head>
 
 
 <body>
 
 
-<!-- =========================
-     HOME
-========================= -->
-
-<section id="homeScreen" class="screen">
-
-    <div class="home-card">
-
-        <img
-            class="arum-photo"
-            src="Untitled%20design_20260825_090032_0000.png"
-            alt="Arum"
-        >
-
-        <div class="title">
-            RISOL SNAKE
-        </div>
-
-        <p class="subtitle">
-            Arum's little game 🥟
-        </p>
-
-        <button id="playButton">
-            PLAY
-        </button>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================
-     GAME
-========================= -->
-
-<section id="gameScreen" class="screen game-screen hidden">
-
-    <div class="top-bar">
-
-        <div>
-            RISOL
-            <span id="score" class="score">0</span>
-        </div>
-
-        <button
-            id="homeButton"
-            class="home-button"
-        >
-            ⌂
-        </button>
-
-    </div>
-
-
-    <div class="game-board">
-
-        <canvas id="gameCanvas"></canvas>
-
-    </div>
-
-
-    <p class="hint">
-        Swipe to move 🐍
-    </p>
-
-</section>
-
-
-
-<!-- =========================
-     GAME OVER
-========================= -->
+<!-- HOME -->
 
 <section
-    id="gameOverScreen"
-    class="screen hidden"
+id="homeScreen"
+class="screen"
 >
 
-    <div class="game-over-card">
+<div class="home-card">
 
-        <div class="risol-emoji">
-            🥟
-        </div>
+<img
+class="arum-photo"
+src="Untitled%20design_20260825_090032_0000.png"
+alt="Arum"
+>
 
-        <h2>
-            GAME OVER!
-        </h2>
+<div class="title">
+RISOL SNAKE
+</div>
 
-        <p>
-            You ate
-            <strong id="finalScore">0</strong>
-            risols!
-        </p>
+<p class="subtitle">
+Arum's little game 🥟
+</p>
 
-        <button id="againButton">
-            TRY AGAIN
-        </button>
+<button id="playButton">
+PLAY
+</button>
 
-        <button
-            id="backButton"
-            class="secondary"
-        >
-            HOME
-        </button>
+</div>
 
-    </div>
+</section>
+
+
+
+<!-- GAME -->
+
+<section
+id="gameScreen"
+class="screen game-screen hidden"
+>
+
+<div class="top-bar">
+
+<div>
+
+RISOL
+
+<span
+id="score"
+class="score"
+>
+0
+</span>
+
+</div>
+
+
+<button
+id="homeButton"
+class="home-button"
+>
+⌂
+</button>
+
+</div>
+
+
+<div class="game-board">
+
+<canvas
+id="gameCanvas"
+></canvas>
+
+</div>
+
+
+<p class="hint">
+Swipe to move 🐍
+</p>
+
+</section>
+
+
+
+<!-- GAME OVER -->
+
+<section
+id="gameOverScreen"
+class="screen hidden"
+>
+
+<div class="game-over-card">
+
+<div class="risol-emoji">
+🥟
+</div>
+
+<h2>
+GAME OVER!
+</h2>
+
+<p>
+
+You ate
+
+<strong id="finalScore">
+0
+</strong>
+
+risols!
+
+</p>
+
+
+<button id="againButton">
+TRY AGAIN
+</button>
+
+
+<button
+id="backButton"
+class="secondary"
+>
+HOME
+</button>
+
+</div>
 
 </section>
 
@@ -385,37 +346,74 @@ canvas {
 
 
 /* =========================
-   ELEMENTS
+GAME ELEMENTS
 ========================= */
 
 const homeScreen =
-    document.getElementById("homeScreen");
+document.getElementById(
+"homeScreen"
+);
 
 const gameScreen =
-    document.getElementById("gameScreen");
+document.getElementById(
+"gameScreen"
+);
 
 const gameOverScreen =
-    document.getElementById("gameOverScreen");
+document.getElementById(
+"gameOverScreen"
+);
 
 const canvas =
-    document.getElementById("gameCanvas");
+document.getElementById(
+"gameCanvas"
+);
 
 const ctx =
-    canvas.getContext("2d");
+canvas.getContext("2d");
 
 const scoreText =
-    document.getElementById("score");
+document.getElementById(
+"score"
+);
 
 const finalScore =
-    document.getElementById("finalScore");
-
+document.getElementById(
+"finalScore"
+);
 
 
 /* =========================
-   SETTINGS
+GAME SETTINGS
 ========================= */
 
-const GRID = 20;
+
+/*
+28 x 28
+=
+kotak lebih kecil
+ala Snake Nokia
+*/
+
+const GRID = 28;
+
+
+/*
+Badan ular
+tetap hampir memenuhi
+kotak.
+*/
+
+const SNAKE_SIZE = 0.92;
+
+
+/*
+Risol memenuhi
+satu kotak.
+*/
+
+const RISOL_SIZE = 1.00;
+
 
 let cellSize = 1;
 
@@ -424,13 +422,13 @@ let snake = [];
 let food = null;
 
 let direction = {
-    x: 1,
-    y: 0
+x:1,
+y:0
 };
 
 let nextDirection = {
-    x: 1,
-    y: 0
+x:1,
+y:0
 };
 
 let score = 0;
@@ -442,672 +440,697 @@ let timer = null;
 let running = false;
 
 
-
 /* =========================
-   RISOL IMAGES
+RISOL FILES
 ========================= */
 
 const risolFiles = [
 
-    "1_20260518_230218_0000.png",
+"Risol1.png",
 
-    "2_20260518_230218_0001.png",
+"Risol2.png",
 
-    "3_20260518_230218_0002.png",
-
-    "4_20260518_230218_0003.png",
-
-    "5_20260518_230218_0004.png"
+"Risol3.png"
 
 ];
 
 
 const risolImages =
-    risolFiles.map(
-        file => {
+risolFiles.map(
+file => {
 
-            const image =
-                new Image();
+const image =
+new Image();
 
-            image.src = file;
+image.src =
+file;
 
-            return image;
+return image;
 
-        }
-    );
-
+}
+);
 
 
 /* =========================
-   RESIZE
+RESIZE
 ========================= */
 
-function resizeCanvas() {
+function resizeCanvas(){
 
-    const size =
-        Math.min(
-            window.innerWidth * 0.92,
-            500
-        );
+const size =
+Math.min(
+window.innerWidth * 0.92,
+500
+);
 
-    canvas.width = size;
+canvas.width =
+size;
 
-    canvas.height = size;
+canvas.height =
+size;
 
-    cellSize =
-        size / GRID;
+cellSize =
+size / GRID;
 
-    draw();
+draw();
 
 }
 
 
 window.addEventListener(
-    "resize",
-    resizeCanvas
+"resize",
+resizeCanvas
 );
 
 
-
 /* =========================
-   START GAME
+START GAME
 ========================= */
 
-function startGame() {
+function startGame(){
 
-    homeScreen.classList.add(
-        "hidden"
-    );
+homeScreen.classList.add(
+"hidden"
+);
 
-    gameOverScreen.classList.add(
-        "hidden"
-    );
+gameOverScreen.classList.add(
+"hidden"
+);
 
-    gameScreen.classList.remove(
-        "hidden"
-    );
-
-
-    resizeCanvas();
+gameScreen.classList.remove(
+"hidden"
+);
 
 
-    snake = [
-
-        {
-            x: 10,
-            y: 10
-        },
-
-        {
-            x: 9,
-            y: 10
-        },
-
-        {
-            x: 8,
-            y: 10
-        }
-
-    ];
+resizeCanvas();
 
 
-    direction = {
-        x: 1,
-        y: 0
-    };
+snake = [
+
+{
+x:14,
+y:14
+},
+
+{
+x:13,
+y:14
+},
+
+{
+x:12,
+y:14
+}
+
+];
 
 
-    nextDirection = {
-        x: 1,
-        y: 0
-    };
+direction = {
+x:1,
+y:0
+};
+
+nextDirection = {
+x:1,
+y:0
+};
 
 
-    score = 0;
+score = 0;
 
-    speed = 150;
+speed = 150;
 
-    running = true;
-
-
-    scoreText.textContent = "0";
+running = true;
 
 
-    createFood();
+scoreText.textContent =
+"0";
 
 
-    clearInterval(timer);
+createFood();
 
 
-    timer =
-        setInterval(
-            updateGame,
-            speed
-        );
+clearInterval(timer);
 
 
-    draw();
+timer =
+setInterval(
+updateGame,
+speed
+);
+
+
+draw();
 
 }
 
 
-
 /* =========================
-   CREATE FOOD
+CREATE FOOD
 ========================= */
 
-function createFood() {
+function createFood(){
 
-    let valid = false;
-
-
-    while (!valid) {
-
-        food = {
-
-            x:
-                Math.floor(
-                    Math.random() * GRID
-                ),
-
-            y:
-                Math.floor(
-                    Math.random() * GRID
-                ),
-
-            image:
-                risolImages[
-                    Math.floor(
-                        Math.random() *
-                        risolImages.length
-                    )
-                ]
-
-        };
+let valid = false;
 
 
-        valid =
-            !snake.some(
-                part =>
-                    part.x === food.x &&
-                    part.y === food.y
-            );
+while(!valid){
 
-    }
+food = {
+
+x:
+Math.floor(
+Math.random() *
+GRID
+),
+
+y:
+Math.floor(
+Math.random() *
+GRID
+),
+
+image:
+risolImages[
+Math.floor(
+Math.random() *
+risolImages.length
+)
+]
+
+};
+
+
+valid =
+!snake.some(
+part =>
+part.x === food.x &&
+part.y === food.y
+);
+
+}
 
 }
 
 
-
 /* =========================
-   UPDATE GAME
+UPDATE
 ========================= */
 
-function updateGame() {
+function updateGame(){
 
-    if (!running) return;
-
-
-    direction =
-        nextDirection;
+if(!running)
+return;
 
 
-    const head = {
-
-        x:
-            snake[0].x +
-            direction.x,
-
-        y:
-            snake[0].y +
-            direction.y
-
-    };
+direction =
+nextDirection;
 
 
-    /* WALL */
+const head = {
 
-    if (
+x:
+snake[0].x +
+direction.x,
 
-        head.x < 0 ||
+y:
+snake[0].y +
+direction.y
 
-        head.x >= GRID ||
-
-        head.y < 0 ||
-
-        head.y >= GRID
-
-    ) {
-
-        gameOver();
-
-        return;
-
-    }
+};
 
 
-    /* BODY */
+/* WALL */
 
-    if (
+if(
 
-        snake.some(
-            part =>
-                part.x === head.x &&
-                part.y === head.y
-        )
+head.x < 0 ||
 
-    ) {
+head.x >= GRID ||
 
-        gameOver();
+head.y < 0 ||
 
-        return;
+head.y >= GRID
 
-    }
+){
 
+gameOver();
 
-    snake.unshift(head);
-
-
-    /* EAT RISOL */
-
-    if (
-
-        head.x === food.x &&
-
-        head.y === food.y
-
-    ) {
-
-        score++;
-
-
-        scoreText.textContent =
-            score;
-
-
-        createFood();
-
-
-        speed =
-            Math.max(
-                65,
-                150 - score * 4
-            );
-
-
-        clearInterval(timer);
-
-
-        timer =
-            setInterval(
-                updateGame,
-                speed
-            );
-
-
-    } else {
-
-        snake.pop();
-
-    }
-
-
-    draw();
+return;
 
 }
 
 
+/* BODY */
 
-/* =========================
-   DRAW
-========================= */
+if(
 
-function draw() {
+snake.some(
+part =>
+part.x === head.x &&
+part.y === head.y
+)
 
-    if (!cellSize) return;
+){
 
+gameOver();
 
-    /* BACKGROUND */
-
-    ctx.fillStyle =
-        "#b8c68e";
-
-    ctx.fillRect(
-        0,
-        0,
-        canvas.width,
-        canvas.height
-    );
-
-
-    /* GRID */
-
-    ctx.strokeStyle =
-        "rgba(40,50,40,0.08)";
-
-    ctx.lineWidth = 1;
-
-
-    for (
-        let i = 0;
-        i <= GRID;
-        i++
-    ) {
-
-        ctx.beginPath();
-
-        ctx.moveTo(
-            i * cellSize,
-            0
-        );
-
-        ctx.lineTo(
-            i * cellSize,
-            canvas.height
-        );
-
-        ctx.stroke();
-
-
-        ctx.beginPath();
-
-        ctx.moveTo(
-            0,
-            i * cellSize
-        );
-
-        ctx.lineTo(
-            canvas.width,
-            i * cellSize
-        );
-
-        ctx.stroke();
-
-    }
-
-
-
-    /* RISOL */
-
-    if (
-        food &&
-        food.image.complete
-    ) {
-
-        const size =
-            cellSize * 0.72;
-
-
-        const x =
-            food.x * cellSize +
-            (cellSize - size) / 2;
-
-
-        const y =
-            food.y * cellSize +
-            (cellSize - size) / 2;
-
-
-        ctx.drawImage(
-
-            food.image,
-
-            x,
-            y,
-
-            size,
-            size
-
-        );
-
-    }
-
-
-
-    /* SNAKE */
-
-    snake.forEach(
-        (part, index) => {
-
-            const x =
-                part.x *
-                cellSize + 2;
-
-
-            const y =
-                part.y *
-                cellSize + 2;
-
-
-            const size =
-                cellSize - 4;
-
-
-            ctx.fillStyle =
-                index === 0
-                    ? "#203c25"
-                    : "#47704b";
-
-
-            ctx.fillRect(
-                x,
-                y,
-                size,
-                size
-            );
-
-
-            /* EYES */
-
-            if (index === 0) {
-
-                ctx.fillStyle =
-                    "#ffffff";
-
-
-                const eye =
-                    Math.max(
-                        2,
-                        cellSize * 0.13
-                    );
-
-
-                let eye1;
-                let eye2;
-
-
-                if (
-                    direction.x === 1
-                ) {
-
-                    eye1 = [
-                        x + size * 0.72,
-                        y + size * 0.28
-                    ];
-
-                    eye2 = [
-                        x + size * 0.72,
-                        y + size * 0.72
-                    ];
-
-                }
-
-                else if (
-                    direction.x === -1
-                ) {
-
-                    eye1 = [
-                        x + size * 0.28,
-                        y + size * 0.28
-                    ];
-
-                    eye2 = [
-                        x + size * 0.28,
-                        y + size * 0.72
-                    ];
-
-                }
-
-                else if (
-                    direction.y === -1
-                ) {
-
-                    eye1 = [
-                        x + size * 0.28,
-                        y + size * 0.28
-                    ];
-
-                    eye2 = [
-                        x + size * 0.72,
-                        y + size * 0.28
-                    ];
-
-                }
-
-                else {
-
-                    eye1 = [
-                        x + size * 0.28,
-                        y + size * 0.72
-                    ];
-
-                    eye2 = [
-                        x + size * 0.72,
-                        y + size * 0.72
-                    ];
-
-                }
-
-
-                ctx.beginPath();
-
-                ctx.arc(
-                    eye1[0],
-                    eye1[1],
-                    eye,
-                    0,
-                    Math.PI * 2
-                );
-
-                ctx.fill();
-
-
-                ctx.beginPath();
-
-                ctx.arc(
-                    eye2[0],
-                    eye2[1],
-                    eye,
-                    0,
-                    Math.PI * 2
-                );
-
-                ctx.fill();
-
-            }
-
-        }
-    );
+return;
 
 }
 
 
+/*
+Tambahkan kepala
+*/
+
+snake.unshift(head);
+
 
 /* =========================
-   GAME OVER
+EAT RISOL
 ========================= */
 
-function gameOver() {
+if(
 
-    running = false;
+head.x === food.x &&
 
-    clearInterval(timer);
+head.y === food.y
 
+){
 
-    finalScore.textContent =
-        score;
-
-
-    gameScreen.classList.add(
-        "hidden"
-    );
+score++;
 
 
-    gameOverScreen.classList.remove(
-        "hidden"
-    );
+scoreText.textContent =
+score;
+
+
+/*
+Tidak menghapus ekor.
+Jadi ular bertambah panjang.
+*/
+
+createFood();
+
+
+/*
+Makin panjang
+makin cepat.
+*/
+
+speed =
+Math.max(
+65,
+150 - score * 4
+);
+
+
+clearInterval(timer);
+
+
+timer =
+setInterval(
+updateGame,
+speed
+);
+
+}
+
+else{
+
+/*
+Tidak makan =
+ekor dihapus.
+*/
+
+snake.pop();
 
 }
 
 
+draw();
+
+}
+
 
 /* =========================
-   KEYBOARD
+DRAW
+========================= */
+
+function draw(){
+
+if(!cellSize)
+return;
+
+
+/* BACKGROUND */
+
+ctx.fillStyle =
+"#b8c68e";
+
+ctx.fillRect(
+0,
+0,
+canvas.width,
+canvas.height
+);
+
+
+/* RETRO GRID */
+
+ctx.strokeStyle =
+"rgba(40,50,40,0.10)";
+
+ctx.lineWidth = 1;
+
+
+for(
+let i=0;
+i<=GRID;
+i++
+){
+
+ctx.beginPath();
+
+ctx.moveTo(
+i * cellSize,
+0
+);
+
+ctx.lineTo(
+i * cellSize,
+canvas.height
+);
+
+ctx.stroke();
+
+
+ctx.beginPath();
+
+ctx.moveTo(
+0,
+i * cellSize
+);
+
+ctx.lineTo(
+canvas.width,
+i * cellSize
+);
+
+ctx.stroke();
+
+}
+
+
+/* =========================
+RISOL
+========================= */
+
+if(
+food &&
+food.image.complete
+){
+
+const size =
+cellSize *
+RISOL_SIZE;
+
+
+const x =
+food.x * cellSize +
+(cellSize - size) / 2;
+
+
+const y =
+food.y * cellSize +
+(cellSize - size) / 2;
+
+
+ctx.drawImage(
+
+food.image,
+
+x,
+
+y,
+
+size,
+
+size
+
+);
+
+}
+
+
+/* =========================
+SNAKE
+========================= */
+
+snake.forEach(
+(part,index)=>{
+
+const size =
+cellSize *
+SNAKE_SIZE;
+
+
+const x =
+part.x * cellSize +
+(cellSize-size)/2;
+
+
+const y =
+part.y * cellSize +
+(cellSize-size)/2;
+
+
+ctx.fillStyle =
+index === 0
+?
+"#203c25"
+:
+"#47704b";
+
+
+ctx.fillRect(
+x,
+y,
+size,
+size
+);
+
+
+/* =====================
+EYES
+===================== */
+
+if(index === 0){
+
+ctx.fillStyle =
+"#ffffff";
+
+
+const eye =
+Math.max(
+2,
+cellSize * 0.12
+);
+
+
+let eye1;
+
+let eye2;
+
+
+if(
+direction.x === 1
+){
+
+eye1=[
+x + size*0.72,
+y + size*0.28
+];
+
+eye2=[
+x + size*0.72,
+y + size*0.72
+];
+
+}
+
+else if(
+direction.x === -1
+){
+
+eye1=[
+x + size*0.28,
+y + size*0.28
+];
+
+eye2=[
+x + size*0.28,
+y + size*0.72
+];
+
+}
+
+else if(
+direction.y === -1
+){
+
+eye1=[
+x + size*0.28,
+y + size*0.28
+];
+
+eye2=[
+x + size*0.72,
+y + size*0.28
+];
+
+}
+
+else{
+
+eye1=[
+x + size*0.28,
+y + size*0.72
+];
+
+eye2=[
+x + size*0.72,
+y + size*0.72
+];
+
+}
+
+
+ctx.beginPath();
+
+ctx.arc(
+eye1[0],
+eye1[1],
+eye,
+0,
+Math.PI*2
+);
+
+ctx.fill();
+
+
+ctx.beginPath();
+
+ctx.arc(
+eye2[0],
+eye2[1],
+eye,
+0,
+Math.PI*2
+);
+
+ctx.fill();
+
+}
+
+}
+);
+
+}
+
+
+/* =========================
+GAME OVER
+========================= */
+
+function gameOver(){
+
+running = false;
+
+clearInterval(timer);
+
+
+finalScore.textContent =
+score;
+
+
+gameScreen.classList.add(
+"hidden"
+);
+
+gameOverScreen.classList.remove(
+"hidden"
+);
+
+}
+
+
+/* =========================
+KEYBOARD
 ========================= */
 
 document.addEventListener(
-    "keydown",
-    event => {
+"keydown",
+event=>{
+
+if(
+event.key==="ArrowUp" &&
+direction.y!==1
+){
+
+nextDirection={
+x:0,
+y:-1
+};
+
+}
 
 
-        if (
-            event.key === "ArrowUp" &&
-            direction.y !== 1
-        ) {
+if(
+event.key==="ArrowDown" &&
+direction.y!==-1
+){
 
-            nextDirection = {
-                x: 0,
-                y: -1
-            };
+nextDirection={
+x:0,
+y:1
+};
 
-        }
-
-
-        if (
-            event.key === "ArrowDown" &&
-            direction.y !== -1
-        ) {
-
-            nextDirection = {
-                x: 0,
-                y: 1
-            };
-
-        }
+}
 
 
-        if (
-            event.key === "ArrowLeft" &&
-            direction.x !== 1
-        ) {
+if(
+event.key==="ArrowLeft" &&
+direction.x!==1
+){
 
-            nextDirection = {
-                x: -1,
-                y: 0
-            };
+nextDirection={
+x:-1,
+y:0
+};
 
-        }
+}
 
 
-        if (
-            event.key === "ArrowRight" &&
-            direction.x !== -1
-        ) {
+if(
+event.key==="ArrowRight" &&
+direction.x!==-1
+){
 
-            nextDirection = {
-                x: 1,
-                y: 0
-            };
+nextDirection={
+x:1,
+y:0
+};
 
-        }
+}
 
-    }
+}
 );
 
 
-
 /* =========================
-   SWIPE
+SWIPE
 ========================= */
 
 let startX = 0;
@@ -1116,180 +1139,182 @@ let startY = 0;
 
 
 canvas.addEventListener(
-    "touchstart",
-    event => {
+"touchstart",
+event=>{
 
-        const touch =
-            event.changedTouches[0];
+const touch =
+event.changedTouches[0];
 
+startX =
+touch.clientX;
 
-        startX =
-            touch.clientX;
+startY =
+touch.clientY;
 
-
-        startY =
-            touch.clientY;
-
-    },
-    {
-        passive: true
-    }
+},
+{
+passive:true
+}
 );
 
 
 canvas.addEventListener(
-    "touchend",
-    event => {
+"touchend",
+event=>{
 
-        const touch =
-            event.changedTouches[0];
-
-
-        const dx =
-            touch.clientX -
-            startX;
+const touch =
+event.changedTouches[0];
 
 
-        const dy =
-            touch.clientY -
-            startY;
+const dx =
+touch.clientX -
+startX;
 
 
-        if (
-            Math.max(
-                Math.abs(dx),
-                Math.abs(dy)
-            ) < 20
-        ) {
-
-            return;
-
-        }
+const dy =
+touch.clientY -
+startY;
 
 
-        if (
-            Math.abs(dx) >
-            Math.abs(dy)
-        ) {
+if(
+Math.max(
+Math.abs(dx),
+Math.abs(dy)
+)<20
+)
+return;
 
 
-            if (
-                dx > 0 &&
-                direction.x !== -1
-            ) {
+if(
+Math.abs(dx) >
+Math.abs(dy)
+){
 
-                nextDirection = {
-                    x: 1,
-                    y: 0
-                };
+if(
+dx>0 &&
+direction.x!==-1
+){
 
-            }
+nextDirection={
+x:1,
+y:0
+};
 
+}
 
-            else if (
-                dx < 0 &&
-                direction.x !== 1
-            ) {
+else if(
+dx<0 &&
+direction.x!==1
+){
 
-                nextDirection = {
-                    x: -1,
-                    y: 0
-                };
+nextDirection={
+x:-1,
+y:0
+};
 
-            }
+}
 
-        }
+}
 
+else{
 
-        else {
+if(
+dy>0 &&
+direction.y!==-1
+){
 
+nextDirection={
+x:0,
+y:1
+};
 
-            if (
-                dy > 0 &&
-                direction.y !== -1
-            ) {
+}
 
-                nextDirection = {
-                    x: 0,
-                    y: 1
-                };
+else if(
+dy<0 &&
+direction.y!==1
+){
 
-            }
+nextDirection={
+x:0,
+y:-1
+};
 
+}
 
-            else if (
-                dy < 0 &&
-                direction.y !== 1
-            ) {
+}
 
-                nextDirection = {
-                    x: 0,
-                    y: -1
-                };
-
-            }
-
-        }
-
-    },
-    {
-        passive: true
-    }
+},
+{
+passive:true
+}
 );
 
 
-
 /* =========================
-   BUTTONS
+BUTTONS
 ========================= */
 
 document
-    .getElementById("playButton")
-    .onclick = startGame;
+.getElementById(
+"playButton"
+)
+.onclick =
+startGame;
 
 
 document
-    .getElementById("againButton")
-    .onclick = startGame;
+.getElementById(
+"againButton"
+)
+.onclick =
+startGame;
 
 
 document
-    .getElementById("homeButton")
-    .onclick = () => {
+.getElementById(
+"homeButton"
+)
+.onclick = ()=>{
 
-        running = false;
+running = false;
 
-        clearInterval(timer);
+clearInterval(timer);
 
-        gameScreen.classList.add(
-            "hidden"
-        );
+gameScreen.classList.add(
+"hidden"
+);
 
-        homeScreen.classList.remove(
-            "hidden"
-        );
+homeScreen.classList.remove(
+"hidden"
+);
 
-    };
+};
 
 
 document
-    .getElementById("backButton")
-    .onclick = () => {
+.getElementById(
+"backButton"
+)
+.onclick = ()=>{
 
-        gameOverScreen.classList.add(
-            "hidden"
-        );
+gameOverScreen.classList.add(
+"hidden"
+);
 
-        homeScreen.classList.remove(
-            "hidden"
-        );
+homeScreen.classList.remove(
+"hidden"
+);
 
-    };
+};
 
+
+/* INITIALIZE */
 
 resizeCanvas();
 
 </script>
 
 </body>
+
 </html>
